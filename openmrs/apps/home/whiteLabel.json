@@ -1,11 +1,11 @@
 {
   "homePage": {
     "header_text": "<b>Welcome to  Chaurmandu EMR",
-    "logo": "/bahmni/images/nepalEhrLogoFull.png",
+    "logo": "/bahmni/images/nepalEHRLogoFull.png",
     "title_text": " "
   },
   "loginPage": {
-    "logo": "/bahmni/images/nepalEhrLogoFull.png",
+    "logo": "/bahmni/images/nepalEHRLogoFull.png",
     "showHeaderText": true,
     "showTitleText": false
   },

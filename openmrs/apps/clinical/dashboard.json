@@ -164,7 +164,6 @@
                         "Vitals"
                     ],
                     "numberOfVisits": 2,
-
                     "pivotTable": {
                         "numberOfVisits": "4",
                         "groupBy": "encounters",

@@ -15,5 +15,6 @@
     "MODULE_LABEL_PRESCRIPTION_KEY": "Ordonnance",
     "MODULE_LABEL_DHIS_2_INTEGRATION_KEY": "Intégration DHIS2",
     "MODULE_LABEL_INCIDENT_REPORTING": "Rapports d'incidents",
-    "MODULE_LABEL_REPORT_IT/EHR_ISSUE": "Signaler des problèmes de TI / DSE"
+    "MODULE_LABEL_REPORT_IT/EHR_ISSUE": "Signaler des problèmes de TI / DSE",
+    "MODULE_LABEL_BED_MANAGEMENT_KEY": "Bed Management"
 }
