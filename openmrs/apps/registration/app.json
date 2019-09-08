@@ -25,7 +25,7 @@
 			]
 		},
         "mandatoryPersonAttributes": [
-            "Caste"
+            "Caste","NHIS Number"
         ],
         "autoCompleteFields": [
             "familyName"
@@ -60,6 +60,7 @@
                 "autocomplete": true
             }
         },
+
         "fieldValidation": {
             "primaryContact": {
                 "pattern": "[0-9]{8,10}",
