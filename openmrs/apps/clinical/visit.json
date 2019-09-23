@@ -6,7 +6,7 @@
         "printing": {
             "title": "Chaurmandu PHC",
             "header": "Visit",
-            "logo": "../images/nepalEhrLogoFull.png"
+            "logo": "../images/nepalEHRLogoFull.png"
         }
     },
     "discharge_summary": {

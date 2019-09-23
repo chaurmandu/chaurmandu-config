@@ -16,6 +16,14 @@
         "activeVisitUuid"
     ],
     "config": {
+		"insurance":{
+			"title":"Insurance Information",
+			"attributes":[
+				"NHIS Member",
+				"NHIS Number",
+				"NHIS Primary Contact Point"
+			]
+		},
         "mandatoryPersonAttributes": [
             "Caste"
         ],
@@ -52,6 +60,7 @@
                 "autocomplete": true
             }
         },
+
         "fieldValidation": {
             "primaryContact": {
                 "pattern": "[0-9]{8,10}",
@@ -78,6 +87,10 @@
                 "errorMessage": "Should be between 1 to 99"
             },
             "Contact Number" :{
+                "pattern": "[0-9]{0,}",
+                "errorMessage": "Should contain only numbers"
+            },
+			"NHIS Number": {
                 "pattern": "[0-9]{0,}",
                 "errorMessage": "Should contain only numbers"
             }
