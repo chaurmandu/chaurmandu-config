@@ -58,7 +58,6 @@
                 },
                 "displayOrder": 1
             },
-	
             "diagnosis": {
                 "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
                 "type": "diagnosis",
