@@ -2,7 +2,7 @@
     "id": "bahmni.homepage",
     "extensionPoints": [{
         "id": "org.bahmni.home.dashboard",
-        "description": "Bahmni Home Page"
+        "description": "NepalEHR Home Page"
     }],
     "config": {
         "enableNepaliCalendar": true,
