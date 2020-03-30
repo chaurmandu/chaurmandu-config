@@ -35,7 +35,7 @@ FROM
         INNER JOIN patient_identifier pi ON p.person_id = pi.patient_id and pi.preferred = 1
         LEFT OUTER JOIN concept_view c ON o.value_coded = c.concept_id
       WHERE
-        (o.voided = 0 AND o.concept_full_name IN ('HTC, Risk Group', 'PMTCT, Risk Group') AND o.value_coded IS NOT NULL)
+        (o.voided = 0 AND o.concept_full_name IN ('HTC-Risk group', 'PMTCT, Risk Group') AND o.value_coded IS NOT NULL)
         AND (DATE(o.obs_datetime) BETWEEN '#startDate#' AND '#endDate#')
       GROUP BY o.person_id, o.concept_full_name, c.concept_full_name) AS t1
 
@@ -43,7 +43,7 @@ FROM
 
      (SELECT person_id
       FROM obs_view
-      WHERE voided = 0 AND ((concept_full_name = 'HTC, Result if tested'
+      WHERE voided = 0 AND ((concept_full_name = 'HTC-Result if tested'
                              AND value_coded IN (SELECT concept_id
                                                  FROM concept_view
                                                  WHERE concept_full_name = 'Positive')) OR
@@ -68,7 +68,7 @@ FROM
         c.concept_full_name AS 'WHO'
       FROM obs_view o
         INNER JOIN concept_view c ON o.value_coded = c.concept_id
-      WHERE o.voided = 0 AND o.concept_full_name IN ('HTC, WHO Staging', 'PMTCT, WHO clinical staging') AND
+      WHERE o.voided = 0 AND o.concept_full_name IN ('HTC-WHO staging', 'PMTCT, WHO clinical staging') AND
             o.value_coded IS NOT NULL AND (o.person_id, o.obs_datetime) IN
                                           (SELECT
                                              person_id,
@@ -83,7 +83,7 @@ FROM
                                               FROM obs_view o
                                                 INNER JOIN concept_view c ON o.value_coded = c.concept_id
                                               WHERE o.voided = 0 AND o.concept_full_name IN
-                                                                     ('HTC, WHO Staging', 'PMTCT, WHO clinical staging')
+                                                                     ('HTC-WHO staging', 'PMTCT, WHO clinical staging')
                                                     AND o.value_coded IS NOT NULL
                                               GROUP BY o.person_id, o.concept_full_name
                                               HAVING max(o.obs_datetime)) AS t1

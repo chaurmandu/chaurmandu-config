@@ -12,7 +12,7 @@ FROM (SELECT
          FROM reporting_age_group rag, concept_name cn, (SELECT DISTINCT value_reference
                                                          FROM visit_attribute va
                                                          WHERE va.visit_attribute_id IS NOT NULL ) va
-         WHERE rag.report_group_name = 'All Ages' AND cn.name IN ('USG Notes','ECG Notes') AND
+         WHERE rag.report_group_name = 'All Ages' AND cn.name IN ('USG Notes','ECG note') AND
                cn.concept_name_type = 'FULLY_SPECIFIED') base
         LEFT OUTER JOIN
         (SELECT

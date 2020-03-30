@@ -25,7 +25,7 @@ FROM
         AND question_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('HIVTC, CPT Status') ORDER BY answer_name DESC) first_question
+        question_concept_name.name IN ('HIVTC FU-CPT status') ORDER BY answer_name DESC) first_question
     
     inner JOIN (SELECT 
         '< 5 Years' AS name,
@@ -59,7 +59,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name ='HIVTC, CPT Status'
+        AND cn1.name ='HIVTC FU-CPT status'
         AND o1.voided = 0
         AND cn1.voided = 0
 	INNER JOIN

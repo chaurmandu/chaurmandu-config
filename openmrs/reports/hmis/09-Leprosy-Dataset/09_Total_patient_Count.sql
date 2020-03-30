@@ -31,7 +31,7 @@ FROM
         AND answer_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Leprosy, Leprosy Type')
+        question_concept_name.name IN ('Leprosy-Leprosy type')
             AND cd.name = 'Coded'
     ORDER BY answer_name DESC) first_answers
         INNER JOIN
@@ -47,7 +47,7 @@ FROM
     INNER JOIN concept_answer ca ON c.concept_id = ca.concept_id
     INNER JOIN concept_name answer_concept_fully_specified_name ON ca.answer_concept = answer_concept_fully_specified_name.concept_id
         AND answer_concept_fully_specified_name.concept_name_type = 'FULLY_SPECIFIED'
-		AND answer_concept_fully_specified_name.name NOT IN ('Classification Change')
+		AND answer_concept_fully_specified_name.name NOT IN ('Classification change')
         AND answer_concept_fully_specified_name.voided
         IS FALSE
     LEFT JOIN concept_name answer_concept_short_name ON ca.answer_concept = answer_concept_short_name.concept_id
@@ -55,7 +55,7 @@ FROM
         AND answer_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Leprosy, Case Type')
+        question_concept_name.name IN ('Leprosy-Case type')
             AND cd.name = 'Coded'
     ORDER BY answer_name DESC) second_answers
         INNER JOIN
@@ -71,7 +71,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'Leprosy, Leprosy Type'
+        AND cn1.name = 'Leprosy-Leprosy type'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
@@ -93,7 +93,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'Leprosy, Case Type'
+        AND cn1.name = 'Leprosy-Case type'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id

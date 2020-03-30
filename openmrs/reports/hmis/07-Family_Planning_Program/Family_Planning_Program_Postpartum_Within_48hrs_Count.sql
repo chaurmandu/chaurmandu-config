@@ -15,7 +15,7 @@ SELECT
     INNER JOIN concept_answer ca ON c.concept_id = ca.concept_id
     INNER JOIN concept_name answer_concept_fully_specified_name ON ca.answer_concept = answer_concept_fully_specified_name.concept_id
         AND answer_concept_fully_specified_name.concept_name_type = 'FULLY_SPECIFIED'
-		AND answer_concept_fully_specified_name.name in ('Intra Uterine Contraceptive Device','Implant','Tubectomy')
+		AND answer_concept_fully_specified_name.name in ('IUCD','Implant','Tubectomy')
         AND answer_concept_fully_specified_name.voided
         IS FALSE
     LEFT JOIN concept_name answer_concept_short_name ON ca.answer_concept = answer_concept_short_name.concept_id
@@ -23,7 +23,7 @@ SELECT
         AND answer_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Discharge Note-Contraceptive Chosen')
+        question_concept_name.name IN ('Discharge note-Contraceptive Chosen')
             AND cd.name = 'Coded' 
     ORDER BY answer_name DESC) first_answers
               
@@ -39,13 +39,13 @@ FROM
         INNER JOIN
     concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name in ('Discharge Note-Contraceptive Chosen')
+        AND cn1.name in ('Discharge note-Contraceptive Chosen')
         AND o1.voided = 0
         AND cn1.voided = 0
         INNER JOIN
     concept_name cn2 ON o1.value_coded = cn2.concept_id
         AND cn2.concept_name_type = 'FULLY_SPECIFIED' 
-        And cn2.name in ('Intra Uterine Contraceptive Device','Implant','Tubectomy')
+        And cn2.name in ('IUCD','Implant','Tubectomy')
         AND cn2.voided = 0
         INNER JOIN
     encounter e ON o1.encounter_id = e.encounter_id

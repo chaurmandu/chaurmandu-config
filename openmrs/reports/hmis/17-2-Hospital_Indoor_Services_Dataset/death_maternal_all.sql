@@ -17,7 +17,7 @@ FROM
         AND question_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Death Note, Maternal Death')
+        question_concept_name.name IN ('Death note-Maternal death')
     ORDER BY answer_name DESC) first_answers
     INNER JOIN (SELECT 'M' AS gender UNION SELECT 'F' AS gender) gender
     LEFT OUTER JOIN (SELECT DISTINCT
@@ -28,7 +28,7 @@ FROM
         obs o
     INNER JOIN concept_name cn1 ON o.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name IN ('Death Note, Maternal Death')
+        AND cn1.name IN ('Death note-Maternal death')
         AND o.voided = 0
         AND cn1.voided = 0
     INNER JOIN encounter e ON o.encounter_id = e.encounter_id

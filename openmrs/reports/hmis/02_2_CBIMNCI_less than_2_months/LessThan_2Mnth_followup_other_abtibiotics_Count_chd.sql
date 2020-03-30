@@ -16,7 +16,7 @@ FROM
         AND question_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Childhood Illness-2 months-Follow up result')
+        question_concept_name.name IN ('CBIMNCI <2-Follow up result')
     ORDER BY answer_name DESC) first_question
         LEFT OUTER JOIN
     (SELECT DISTINCT
@@ -34,7 +34,7 @@ FROM
     INNER JOIN person p ON o.person_id = p.person_id
         AND p.voided = 0
     WHERE
-        cn1.name IN ('Childhood Illness-2 months-Follow up result' )
+        cn1.name IN ('CBIMNCI <2-Follow up result' )
             AND TIMESTAMPDIFF(DAY, p.birthdate, v.date_started) < 60
 			And DATE(o.obs_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
             -- AND DATE(o.obs_datetime) BETWEEN DATE('2017-01-01') AND DATE('2017-12-30')
@@ -51,7 +51,7 @@ FROM
  INNER JOIN
     concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'Childhood Illness-<2 months, case'
+        AND cn1.name = 'Childhood Illness <2-Case'
         AND o1.voided = 0
         AND cn1.voided = 0
         INNER JOIN

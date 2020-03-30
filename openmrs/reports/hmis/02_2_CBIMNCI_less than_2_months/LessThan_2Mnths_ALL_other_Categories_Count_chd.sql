@@ -17,13 +17,13 @@ FROM
         AND question_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Childhood Illness - PSBI/LBI/NBI - PSBI' , 
-        'Childhood Illness - PSBI/LBI/NBI - LBI', 
-        'Childhood Illness - PSBI/LBI/NBI - NBI', 
-        'PSBI/LBI/NBI, Jaundice', 
+        question_concept_name.name IN ('PSBI/LBI/NBI-PSBI' , 
+        'PSBI/LBI/NBI-LBI', 
+        'PSBI/LBI/NBI-NBI', 
+        'PSBI/LBI/NBI-Jaundice', 
         'Breastfed', 
         'Difficulty feeding or low weight', 
-        'Childhood Illness, Referred out')
+        'CBIMNCI <2-Referred out')
         ORDER BY answer_name DESC) first_question
         INNER JOIN
     (SELECT '< 29 days' AS age_days UNION SELECT '29 - 59 days' AS age_days) age_days_grp
@@ -52,13 +52,13 @@ FROM
     INNER JOIN person p ON o.person_id = p.person_id
     and p.voided=0
     WHERE
-    cn1.name IN ('Childhood Illness - PSBI/LBI/NBI - PSBI' , 
-        'Childhood Illness - PSBI/LBI/NBI - LBI', 
-        'Childhood Illness - PSBI/LBI/NBI - NBI', 
-        'PSBI/LBI/NBI, Jaundice', 
+    cn1.name IN ('PSBI/LBI/NBI-PSBI' , 
+        'PSBI/LBI/NBI-LBI', 
+        'PSBI/LBI/NBI-NBI', 
+        'PSBI/LBI/NBI-Jaundice', 
         'Breastfed', 
         'Difficulty feeding or low weight', 
-        'Childhood Illness, Referred out')
+        'CBIMNCI <2-Referred out')
          and 
         -- DATE(o.obs_datetime) BETWEEN DATE('2017-03-01') AND DATE('2017-03-30')
 	  DATE(o.obs_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')

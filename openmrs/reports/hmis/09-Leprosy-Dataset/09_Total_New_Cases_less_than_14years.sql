@@ -30,7 +30,7 @@ FROM
         AND answer_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Leprosy, Leprosy Type')
+        question_concept_name.name IN ('Leprosy-Leprosy type')
             AND cd.name = 'Coded'
     ORDER BY answer_name DESC) first_answers
 
@@ -50,7 +50,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'Leprosy, Leprosy Type'
+        AND cn1.name = 'Leprosy-Leprosy type'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
@@ -72,12 +72,12 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'Leprosy, Case Type'
+        AND cn1.name = 'Leprosy-Case type'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
         AND cn2.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn2.name = 'New Patients'
+        AND cn2.name = 'New patients'
         AND cn2.voided = 0
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id
     INNER JOIN visit v1 ON v1.visit_id = e.visit_id

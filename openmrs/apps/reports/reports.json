@@ -212,7 +212,40 @@
 		}
 	},
 
-	"06 Safe Motherhood Program": {
+	
+
+"procedure_notes": {
+"name": "Procedure note",
+"diy": "true",
+"type": "obsTemplate",
+"config": {
+"templateName": "Procedure note"
+           }
+},
+
+"Canned_obs": {
+     "name": "Diagnosis Canned OBS Report",
+     "diy": "true",
+     "type": "observations",
+     "config": {
+         "visitAttributes": [
+             "Visit Status",
+             "Admission Status"
+         ],
+         "showVisitInfo": true,
+         "showProvider": true,
+         "conceptNamesToFilter": [ "Coded Diagnosis"],
+         "conceptNameDisplayFormat": "shortNamePreferred",
+         "applyDateRangeFor": "obsDate",
+         "encounterPerRow": false,
+         "forDataAnalysis": true,
+         "visitTypesToFilter": [
+             "General",
+              "Emergency"
+                               ]
+                 }
+},
+"06 Safe Motherhood Program": {
 		"name": "06 Safe Motherhood Program",
 		"DHISProgram": true,
 		"type": "concatenated",
@@ -295,21 +328,21 @@
 					}
 				},
 				{
-					"name": "Safe Abortion Service",
+					"name": "Safe abortion (SA) note Service",
 					"type": "MRSGeneric",
 					"config": {
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/06-Safe_Motherhood_Program/Safe_Abortion_Service.sql"
 					}
 				},
 				{
-					"name": "Safe Abortion Family Planning",
+					"name": "Safe abortion (SA) note Family Planning",
 					"type": "MRSGeneric",
 					"config": {
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/06-Safe_Motherhood_Program/Family_planning_Method.sql"
 					}
 				},
 				{
-					"name": "Safe Abortion Total",
+					"name": "Safe abortion (SA) note Total",
 					"type": "MRSGeneric",
 					"config": {
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/06-Safe_Motherhood_Program/Safe_Abortion_Total.sql"
@@ -774,13 +807,6 @@
 					}
 				},
 				{
-					"name": "STI Cases-by Syndromes",
-					"type": "MRSGeneric",
-					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_STI_Cases_ By_Syndromes.sql"
-					}
-				},
-				{
 					"name": "STI Cases-by Etiology",
 					"type": "MRSGeneric",
 					"config": {
@@ -858,7 +884,8 @@
 			},
 			{
 				"name": "Gender Equity and Social Inclusion HIV AIDS",
-				"type": "MRSGeneric",
+				"type": "ElisGeneric",
+				"DHISProgram": true,
 				"config": {
 					"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/14-Gender-Equity-and-Social-Inclusion/Gender_ Equity_and_Social_Inclusion_HIV.sql"
 				}
@@ -1071,7 +1098,7 @@
 					}
 				},
 				{
-					"name": "Hospital Services - Referred In patient",
+					"name": "Hospital Services - Referred in patient",
 					"type": "MRSGeneric",
 					"config": {
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/17-1-Hospital_Summary_Dataset/referred_in.sql"
@@ -1142,15 +1169,6 @@
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/17-2-Hospital_Indoor_Services_Dataset/gestational_weeks_maternal_age.sql"
 					}
 				},
-
-				{
-					"name": "Summary of Indoor Services Inpatient Outcome Referred Out",
-					"type": "MRSGeneric",
-					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/17-2-Hospital_Indoor_Services_Dataset/inpatient_referredout.sql"
-					}
-				},
-
 				{
 					"name": "FreeHealthServices Outpatient",
 					"type": "MRSGeneric",
@@ -1361,7 +1379,7 @@
 		"config": {
 			"ageGroupName": "All Ages",
 			"conceptNames": [
-				"Safe Abortion, Post Abortion Care"
+				"SA-Post abortioon care"
 			]
 		}
 	},
@@ -1401,7 +1419,7 @@
 		"config": {
 			"ageGroupName": "IMAM",
 			"conceptNames": [
-				"Nutrition, Nutritional Status"
+				"Nutrition-Nutritional status"
 			]
 		}
 	},

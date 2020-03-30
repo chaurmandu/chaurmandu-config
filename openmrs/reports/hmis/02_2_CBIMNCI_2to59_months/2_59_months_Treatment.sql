@@ -6,7 +6,7 @@ FROM
 	select  'Other Antibiotics' as answer_name union 
 	select  'ORS only'  as answer_name union 
 	select  'ORS and Zinc'  as answer_name union 
-	select  'IV Fluid'  as answer_name union 
+	select  'IV fluid'  as answer_name union 
 	select  'Anti-helminthes'  as answer_name union 
 	select 'Amoxicillin'  as answer_name union
 	select 'Contrim'  as answer_name
@@ -22,7 +22,7 @@ SELECT DISTINCT
     (o1.person_id),
     Case
 	WHEN (SELECT   name  FROM  drug WHERE drug_id = dord.drug_inventory_id) in ('P lyte 500 ml IV fluid','Normal Saline 0.9% 500ml Injection','Ringer\'s Lactate, 500ml Injection')
-    THEN  'IV Fluid'
+    THEN  'IV fluid'
 	WHEN (SELECT   name  FROM  drug WHERE drug_id = dord.drug_inventory_id) in ('Albendazole 400mg chewable Tablet','Albendazole 200mg/5ml Suspension') 
     THEN  'Anti-helminthes'
 	WHEN (SELECT   lower(name)  FROM  drug WHERE drug_id = dord.drug_inventory_id) LIKE '%Vitamin A%' 
@@ -90,12 +90,12 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name IN ('Childhood Illness, Dehydration Status')
+        AND cn1.name IN ('Childhood Illness-Dehydration status')
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
         AND cn2.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn2.name IN ('No Dehydration' , 'Severe Dehydration', 'Some Dehydration')
+        AND cn2.name IN ('No dehydration' , 'Severe dehydration', 'Some dehydration')
         AND cn2.voided = 0
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id
     INNER JOIN person p1 ON o1.person_id = p1.person_id

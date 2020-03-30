@@ -30,7 +30,7 @@ FROM
         AND answer_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Discharge note, Inpatient outcome')
+        question_concept_name.name IN ('Discharge note-Inpatient outcome')
             AND cd.name = 'Coded'
     ORDER BY answer_name DESC) first_answers
         INNER JOIN
@@ -48,7 +48,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'Discharge note, Inpatient outcome'
+        AND cn1.name = 'Discharge note-Inpatient outcome'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id

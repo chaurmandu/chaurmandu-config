@@ -33,7 +33,7 @@ FROM
         obs o
     INNER JOIN concept_name cn1 ON o.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'Delivery Note, Delivery date and time'
+        AND cn1.name = 'Delivery-Delivery date and time'
         AND o.voided = 0
         AND cn1.voided = 0
     INNER JOIN encounter e ON o.encounter_id = e.encounter_id
@@ -46,7 +46,7 @@ FROM
         FROM
             concept_view
         WHERE
-            concept_full_name = 'Delivery Note, Gestation period')
+            concept_full_name = 'Delivery-Gestation period')
         AND gestation_period_obs.voided = FALSE
     WHERE
         (o.value_datetime IS NOT NULL)

@@ -26,5 +26,5 @@ WHERE !p.voided AND !v.voided AND !e.voided
       DATE(oIsFCHV.obs_datetime) BETWEEN DATE('2017-03-01') AND DATE('2017-03-31')
       AND TIMESTAMPDIFF(MONTH, p.birthdate, v.date_started) >=6
       AND TIMESTAMPDIFF(MONTH, p.birthdate, v.date_started) <= 23
-      AND (oIsFCHV.question_full_name = 'Nutrition, Bal Vita Provided by FCHV')
+      AND (oIsFCHV.question_full_name = 'Nutrition-Bal vita provided by fchv')
 GROUP BY personId) baalVitaProgram GROUP BY `Age group` ORDER BY age;

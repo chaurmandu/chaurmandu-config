@@ -1,10 +1,10 @@
 SELECT
-  ifnull(SUM(IF(risk_group_value_concept.concept_full_name = 'Sex Worker', 1, 0)), 0)                    AS FSW,
-  ifnull(SUM(IF(risk_group_value_concept.concept_full_name = 'People Who Inject Drugs', 1, 0)), 0)       AS IDU,
-  ifnull(SUM(IF(risk_group_value_concept.concept_full_name = 'MSM and Transgenders', 1, 0)), 0)          AS MSM,
+  ifnull(SUM(IF(risk_group_value_concept.concept_full_name = 'Sex worker', 1, 0)), 0)                    AS FSW,
+  ifnull(SUM(IF(risk_group_value_concept.concept_full_name = 'People who inject drugs', 1, 0)), 0)       AS IDU,
+  ifnull(SUM(IF(risk_group_value_concept.concept_full_name = 'MSM and transgenders', 1, 0)), 0)          AS MSM,
   ifnull(SUM(IF(risk_group_value_concept.concept_full_name = 'Migrant', 1, 0)), 0)                       AS Migrant,
   ifnull(SUM(IF(risk_group_value_concept.concept_full_name NOT IN
-                ('Migrant', 'MSM and Transgenders', 'Sex Worker', 'People Who Inject Drugs'), 1, 0)), 0) AS Others
+                ('Migrant', 'MSM and transgenders', 'Sex worker', 'People who inject drugs'), 1, 0)), 0) AS Others
 FROM obs enrolled_obs
   JOIN concept_view enrolled_concept
     ON enrolled_concept.concept_id = enrolled_obs.concept_id

@@ -9,13 +9,13 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'ANC, ANC Visit'
+        AND deliveryMethodConcept.name = 'ANC-ANC visit'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
         INNER JOIN
     concept_name cn2 ON obs.value_coded = cn2.concept_id
         AND cn2.concept_name_type = 'FULLY_SPECIFIED'
         AND cn2.voided = 0
-        AND cn2.name = 'ANC, 1st (any time)'
+        AND cn2.name = 'ANC-1st (any time)'
 WHERE
     DATE(obs.obs_datetime) BETWEEN CAST('#startDate#' AS DATE) AND CAST('#endDate#' AS DATE) 
 UNION 
@@ -29,7 +29,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'ANC, HIV Counseling'
+        AND deliveryMethodConcept.name = 'ANC-HIV counseling'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
 WHERE
     DATE(obs.obs_datetime) BETWEEN CAST('#startDate#' AS DATE) AND CAST('#endDate#' AS DATE) 
@@ -43,13 +43,13 @@ WHERE
                 AND person.voided = 0
                 INNER JOIN
             concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-                AND deliveryMethodConcept.name = 'ANC, ANC Visit'
+                AND deliveryMethodConcept.name = 'ANC-ANC visit'
                 AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
                 INNER JOIN
             concept_name cn2 ON obs.value_coded = cn2.concept_id
                 AND cn2.concept_name_type = 'FULLY_SPECIFIED'
                 AND cn2.voided = 0
-                AND cn2.name = 'ANC, 1st (any time)'
+                AND cn2.name = 'ANC-1st (any time)'
         WHERE
                DATE(obs.obs_datetime) BETWEEN CAST('#startDate#' AS DATE) AND CAST('#endDate#' AS DATE)) 
 UNION 
@@ -63,7 +63,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'ANC, HIV Testing'
+        AND deliveryMethodConcept.name = 'ANC-HIV testing'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
 WHERE
     DATE(obs.obs_datetime) BETWEEN CAST('#startDate#' AS DATE) AND CAST('#endDate#' AS DATE) 
@@ -77,13 +77,13 @@ WHERE
                 AND person.voided = 0
                 INNER JOIN
             concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-                AND deliveryMethodConcept.name = 'ANC, ANC Visit'
+                AND deliveryMethodConcept.name = 'ANC-ANC visit'
                 AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
                 INNER JOIN
             concept_name cn2 ON obs.value_coded = cn2.concept_id
                 AND cn2.concept_name_type = 'FULLY_SPECIFIED'
                 AND cn2.voided = 0
-                AND cn2.name = 'ANC, 1st (any time)'
+                AND cn2.name = 'ANC-1st (any time)'
         WHERE
                DATE(obs.obs_datetime) BETWEEN CAST('#startDate#' AS DATE) AND CAST('#endDate#' AS DATE) 
 ) 
@@ -95,7 +95,7 @@ FROM
 obs o1
 INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
 AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-AND cn1.name IN ('ANC, HIV Test Result')
+AND cn1.name IN ('ANC-HIV test result')
 AND o1.voided = 0
 AND cn1.voided = 0
 INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
@@ -117,7 +117,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'HIV Counselled'
+        AND deliveryMethodConcept.name = 'HIV counselled'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
 WHERE
     DATE(obs.obs_datetime) BETWEEN CAST('#startDate#' AS DATE) AND CAST('#endDate#' AS DATE) 
@@ -132,7 +132,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'Delivery note-Test performed in this delivery?'
+        AND deliveryMethodConcept.name = 'Delivery note-Test performed in this delivery'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
 WHERE
     DATE(obs.obs_datetime) BETWEEN CAST('#startDate#' AS DATE) AND CAST('#endDate#' AS DATE) 
@@ -148,7 +148,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'Delivery note-Test result'
+        AND deliveryMethodConcept.name = 'Delivery-Test result'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
         INNER JOIN
     concept_name cn2 ON obs.value_coded = cn2.concept_id
@@ -169,7 +169,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'PNC - HIV counselling'
+        AND deliveryMethodConcept.name = 'PNC-HIV counselling'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
        
 WHERE
@@ -185,7 +185,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'PNC - HIV tested'
+        AND deliveryMethodConcept.name = 'PNC-HIV tested'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
        
 WHERE
@@ -201,7 +201,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'HCT, Result if tested'
+        AND deliveryMethodConcept.name = 'HCT-Result if tested'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
 		 INNER JOIN
     concept_name cn2 ON obs.value_coded = cn2.concept_id
@@ -211,6 +211,7 @@ FROM
        
 WHERE
     DATE(obs.obs_datetime) BETWEEN CAST('#startDate#' AS DATE) AND CAST('#endDate#' AS DATE) 
+	AND obs.voided != 1
   
     
   

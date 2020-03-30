@@ -62,37 +62,37 @@
         {
           "categoryOptionCombo": "kdsirVNKdhm",
           "dataElement": "VdZyJrLrSg5",
-          "row": 3,
+          "row": 2,
           "column": 2
         },
         {
           "categoryOptionCombo": "kdsirVNKdhm",
           "dataElement": "rqny3AJuymt",
-          "row": 3,
+          "row": 2,
           "column": 3
         },
         {
           "categoryOptionCombo": "kdsirVNKdhm",
           "dataElement": "c6dLz049UWw",
-          "row": 3,
+          "row": 2,
           "column": 4
         },
         {
           "categoryOptionCombo": "kdsirVNKdhm",
           "dataElement": "CtX7O3pbtL3",
-          "row": 2,
+          "row": 3,
           "column": 2
         },
         {
           "categoryOptionCombo": "kdsirVNKdhm",
           "dataElement": "fQU35FONgPq",
-          "row": 2,
+          "row": 3,
           "column": 3
         },
         {
           "categoryOptionCombo": "kdsirVNKdhm",
           "dataElement": "NdY1V8YqJDd",
-          "row": 2,
+          "row": 3,
           "column": 4
         },
         {
@@ -396,7 +396,7 @@
         }
       ]
     },
-	  "Safe Abortion Total":{
+	  "Safe abortion (SA) note Total":{
       "dataValues": [
         {
           "categoryOptionCombo": "kdsirVNKdhm",
@@ -425,7 +425,7 @@
 		]
 	},
 	
-    "Safe Abortion Service":{
+    "Safe abortion (SA) note Service":{
       "dataValues": [
         {
           "categoryOptionCombo": "kdsirVNKdhm",
@@ -447,7 +447,7 @@
         }
       ]
     },
-	"Safe Abortion Family Planning":{
+	"Safe abortion (SA) note Family Planning":{
       "dataValues": [
        
         {

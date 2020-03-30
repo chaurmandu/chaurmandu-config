@@ -1,6 +1,6 @@
 SELECT 
     first_answers.category AS 'Category',
-    IFNULL(SUM(IF (method IN ('Condoms', 'Pills', 'Depo Provera'), method_count, 0)), 0) as 'short term',
+    IFNULL(SUM(IF (method IN ('Condoms', 'Pills', 'Depo provera'), method_count, 0)), 0) as 'short term',
   IFNULL(SUM(IF (method IN ('Male sterilization', 'IUCD', 'Implant', 'Female sterilization'), method_count, 0)), 0) as 'long term'	
 	
 
@@ -18,7 +18,7 @@ FROM
     INNER JOIN concept_answer ca ON c.concept_id = ca.concept_id
     INNER JOIN concept_name answer_concept_fully_specified_name ON ca.answer_concept = answer_concept_fully_specified_name.concept_id
         AND answer_concept_fully_specified_name.concept_name_type = 'FULLY_SPECIFIED'
-        AND answer_concept_fully_specified_name.name NOT IN ('Not Applicable')
+        AND answer_concept_fully_specified_name.name NOT IN ('Not applicable')
         AND answer_concept_fully_specified_name.voided
         IS FALSE
     LEFT JOIN concept_name answer_concept_short_name ON ca.answer_concept = answer_concept_short_name.concept_id
@@ -26,7 +26,7 @@ FROM
         AND answer_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Safe abortion-Surgical procedure' , 'Safe abortion-Medical Procedure')
+        question_concept_name.name IN ('SA-surgical procedure' , 'SA-medical procedure')
             AND cd.name = 'Coded'
     ORDER BY answer_name DESC) first_answers
         LEFT OUTER JOIN
@@ -38,12 +38,12 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name IN ('Safe abortion-Surgical procedure' , 'Safe abortion-Medical Procedure')
+        AND cn1.name IN ('SA-surgical procedure' , 'SA-medical procedure')
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
         AND cn2.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn2.name NOT IN ('Not Applicable')
+        AND cn2.name NOT IN ('Not applicable')
         AND cn2.voided = 0
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id
     INNER JOIN visit v1 ON v1.visit_id = e.visit_id
@@ -59,7 +59,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'Accepted Family Planning methods'
+        AND cn1.name = 'Accepted family planning methods'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id

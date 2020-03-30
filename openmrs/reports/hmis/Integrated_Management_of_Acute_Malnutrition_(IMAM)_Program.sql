@@ -4,12 +4,12 @@ SELECT
   gender                                             AS 'Sex',
   SUM(IF(adtType = 'NEW', 1, 0))                     AS 'New Admission',
   SUM(IF(adtType = 'Re-admission', 1, 0))            AS 'Re-admission',
-  SUM(IF(adtType = 'Transfer In', 1, 0))             AS 'Transfer In',
+  SUM(IF(adtType = 'Transfer in', 1, 0))             AS 'Transfer in',
   SUM(IF(adtType = 'Recovered', 1, 0))               AS 'Recovered',
   SUM(IF(adtType = 'Death', 1, 0))                   AS 'Death',
   SUM(IF(adtType = 'Defaulter – DF', 1, 0))          AS 'De-faulter',
-  SUM(IF(adtType = 'IMAM, Refer to Hospital', 1, 0)) AS 'Refer to Hospital',
-  SUM(IF(adtType = 'Transfer Out - TO', 1, 0))       AS 'Transfer Out',
+  SUM(IF(adtType = 'IMAM-Refer to hospital', 1, 0)) AS 'Refer to Hospital',
+  SUM(IF(adtType = 'Transfer Out-TO', 1, 0))       AS 'Transfer Out',
   COUNT(DISTINCT thisMothPetient)                    AS 'Children at End of This Month'
 
 

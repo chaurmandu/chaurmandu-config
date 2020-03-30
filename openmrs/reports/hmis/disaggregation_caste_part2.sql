@@ -53,7 +53,7 @@ FROM
      INNER JOIN person_attribute ON person_attribute.person_id = person.person_id
      INNER JOIN person_attribute_type ON person_attribute.person_attribute_type_id = person_attribute_type.person_attribute_type_id
                                          AND person_attribute_type.name = 'Caste'
-     INNER JOIN confirmed_diagnosis_view diagnosis on diagnosis.visit_id = visit.visit_id and diagnosis.person_id=person.person_id and diagnosis.name in ('Tuberculosis', 'Multi Drug Resistant Tuberculosis', 'Extremely Drug Resistant Tuberculosis')
+     INNER JOIN confirmed_diagnosis_view diagnosis on diagnosis.visit_id = visit.visit_id and diagnosis.person_id=person.person_id and diagnosis.name in ('Tuberculosis', 'Multi drug resistant Tuberculosis', 'Extremely Drug Resistant Tuberculosis')
      RIGHT OUTER JOIN (SELECT answer_concept_name, answer_concept_id FROM concept_answer_view WHERE question_concept_name = 'Caste' ) AS caste_list ON caste_list.answer_concept_id = person_attribute.value
    GROUP BY caste_list.answer_concept_name) AS tb_cases ON tb_cases.caste_ethnicity = hiv_cases.caste_ethnicity
   INNER JOIN
@@ -71,7 +71,7 @@ FROM
                                          AND person_attribute_type.name = 'Caste'
      INNER JOIN encounter ON visit.visit_id = encounter.visit_id
      INNER JOIN coded_obs_view ON encounter.encounter_id = coded_obs_view.encounter_id
-                                  AND coded_obs_view.concept_full_name IN ('Out Patient Details, Free Health Service Code', 'ER General Notes, Free Health Service Code')
+                                  AND coded_obs_view.concept_full_name IN ('ER-Free health service code', 'ER-Free health service code')
                                   AND coded_obs_view.value_concept_full_name = 'Gender based violence'
      RIGHT OUTER JOIN (SELECT answer_concept_name, answer_concept_id FROM concept_answer_view WHERE question_concept_name = 'Caste' ) AS caste_list ON caste_list.answer_concept_id = person_attribute.value
    GROUP BY caste_list.answer_concept_name) AS gender_violence ON gender_violence.caste_ethnicity = tb_cases.caste_ethnicity;

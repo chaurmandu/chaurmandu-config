@@ -11,7 +11,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'PMTCT, Baby birth status'
+        AND cn1.name = 'PMTCT-Baby birth status'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
@@ -30,7 +30,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'PMTCT, Started ARV Prophylaxis for Baby'
+        AND cn1.name = 'PMTCT-Started ARV Prophylaxis for Baby'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
@@ -49,7 +49,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'ANC, ANC Visit'
+        AND cn1.name = 'ANC-ANC visit'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id
@@ -82,7 +82,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'PMTCT, Family Planning services provided postpartum'
+        AND cn1.name = 'PMTCT-Family Planning services provided postpartum'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id

@@ -131,7 +131,7 @@ FROM
         AND cn2.voided = 0) method_view ON ov.encounter_id = method_view.encounter_id
         AND ov.voided = 0
     WHERE
-        ov.concept_full_name = 'FRH-Procedure Follow Up'
+        ov.concept_full_name = 'FRH-Procedure follow up'
             AND DATE(ov.value_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
             AND ov.person_id NOT IN (SELECT DISTINCT
                 o.person_id

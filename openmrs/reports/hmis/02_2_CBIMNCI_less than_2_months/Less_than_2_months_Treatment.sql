@@ -59,7 +59,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name IN ('Childhood Illness - PSBI/LBI/NBI - LBI' , 'PSBI/LBI/NBI, Jaundice', 'Difficulty feeding or low weight')
+        AND cn1.name IN ('PSBI/LBI/NBI-LBI' , 'PSBI/LBI/NBI-Jaundice', 'Difficulty feeding or low weight')
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id
     INNER JOIN person p1 ON o1.person_id = p1.person_id
     INNER JOIN visit v ON v.visit_id = e.visit_id
@@ -121,7 +121,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name IN ('Childhood Illness - PSBI/LBI/NBI - LBI' , 'PSBI/LBI/NBI, Jaundice', 'Difficulty feeding or low weight')
+        AND cn1.name IN ('PSBI/LBI/NBI-LBI' , 'PSBI/LBI/NBI-Jaundice', 'Difficulty feeding or low weight')
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id
     INNER JOIN person p1 ON o1.person_id = p1.person_id
     INNER JOIN visit v ON v.visit_id = e.visit_id
@@ -188,7 +188,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name IN ('Childhood Illness - PSBI/LBI/NBI - LBI' , 'PSBI/LBI/NBI, Jaundice', 'Difficulty feeding or low weight')
+        AND cn1.name IN ('PSBI/LBI/NBI-LBI' , 'PSBI/LBI/NBI-Jaundice', 'Difficulty feeding or low weight')
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id
     INNER JOIN person p1 ON o1.person_id = p1.person_id
     INNER JOIN visit v ON v.visit_id = e.visit_id

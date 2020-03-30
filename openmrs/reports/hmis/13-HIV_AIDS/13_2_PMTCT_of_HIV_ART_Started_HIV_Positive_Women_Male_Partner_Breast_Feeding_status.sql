@@ -4,7 +4,7 @@ select
   ifnull(result.total_count,0) as 'Toatal Count'
 from
   concept_view AS question
-  INNER JOIN concept_answer ON question.concept_id = concept_answer.concept_id AND question.concept_full_name IN ('PMTCT, Started ART during','PMTCT, Who already know their HIV status','PMTCT, Breast feeding options opted by HIV +ve mother')
+  INNER JOIN concept_answer ON question.concept_id = concept_answer.concept_id AND question.concept_full_name IN ('PMTCT-Started art during','PMTCT-Who already know their HIV status','PMTCT-Breast feeding options opted by HIV +ve mother')
   INNER JOIN concept_view AS answer ON answer.concept_id = concept_answer.answer_concept
   LEFT OUTER JOIN (
     SELECT
@@ -13,7 +13,7 @@ from
       count(*) as total_count
     FROM
       obs
-      INNER JOIN concept_view question on obs.concept_id = question.concept_id and question.concept_full_name IN ('PMTCT, Started ART during','PMTCT, Who already know their HIV status','PMTCT, Breast feeding options opted by HIV +ve mother')
+      INNER JOIN concept_view question on obs.concept_id = question.concept_id and question.concept_full_name IN ('PMTCT-Started art during','PMTCT-Who already know their HIV status','PMTCT-Breast feeding options opted by HIV +ve mother')
       INNER JOIN person on obs.person_id = person.person_id
       INNER JOIN encounter on obs.encounter_id = encounter.encounter_id
       INNER  JOIN visit on encounter.visit_id = visit.visit_id

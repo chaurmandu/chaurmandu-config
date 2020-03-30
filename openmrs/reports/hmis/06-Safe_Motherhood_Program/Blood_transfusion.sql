@@ -14,7 +14,7 @@ FROM
         AND t5.voided = 0
         AND t5.concept_name_type = 'FULLY_SPECIFIED'
     WHERE
-        t5.name = 'Delivery Note, Blood transfusion quantity'
+        t5.name = 'Delivery-Blood transfusion quantity'
             AND t1.voided = 0
             AND t1.value_numeric > 0
             AND (DATE(t1.obs_datetime) BETWEEN '#startDate#' AND '#endDate#') UNION ALL SELECT 
@@ -27,7 +27,7 @@ FROM
         AND t5.voided = 0
         AND t5.concept_name_type = 'FULLY_SPECIFIED'
     WHERE
-        t5.name = 'Delivery Note, Blood transfusion quantity'
+        t5.name = 'Delivery-Blood transfusion quantity'
             AND t1.voided = 0
             AND (DATE(t1.obs_datetime) BETWEEN '#startDate#' AND '#endDate#')
     GROUP BY t5.name UNION ALL SELECT 'No of Females', 0 UNION ALL SELECT 'Unit', 0) final

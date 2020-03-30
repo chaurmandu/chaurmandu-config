@@ -21,7 +21,7 @@ FROM
      WHERE
        t1.concept_id IN (SELECT concept_id
                          FROM concept_name
-                         WHERE NAME = 'ANC, Completed 4 ANC visits' AND voided = 0)
+                         WHERE NAME = 'ANC-Completed 4 anc visits' AND voided = 0)
        AND t1.value_coded = 1 AND
        (DATE(t1.obs_datetime) BETWEEN '#startDate#' AND '#endDate#')
        AND t1.voided = 0)
@@ -39,7 +39,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'ANC, ANC Visit'
+        AND deliveryMethodConcept.name = 'ANC-ANC visit'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
         INNER JOIN
     concept_name cn2 ON obs.value_coded = cn2.concept_id
@@ -61,7 +61,7 @@ FROM
         AND person.voided = 0
         INNER JOIN
     concept_name deliveryMethodConcept ON deliveryMethodConcept.concept_id = obs.concept_id
-        AND deliveryMethodConcept.name = 'ANC, ANC Visit'
+        AND deliveryMethodConcept.name = 'ANC-ANC visit'
         AND deliveryMethodConcept.concept_name_type = 'FULLY_SPECIFIED'
         INNER JOIN
     concept_name cn2 ON obs.value_coded = cn2.concept_id

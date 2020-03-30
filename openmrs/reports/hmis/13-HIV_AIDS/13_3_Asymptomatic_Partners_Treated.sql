@@ -12,7 +12,7 @@ p1.gender as gender
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'STI, Asymptomatic Partners Treated'
+        AND cn1.name = 'STI-Asymptomatic partners treated'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id

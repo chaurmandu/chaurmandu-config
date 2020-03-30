@@ -10,11 +10,11 @@ ELSE 0
 END) AS 'Children at End of Last Month',
 SUM(final.`New Admission`) AS 'New Admission',
 SUM(final.`Re-admission`) AS 'Re-admission',
-SUM(final.`Transfer In`) AS 'Transfer In',
+SUM(final.`Transfer in`) AS 'Transfer in',
 SUM(final.`Discharge - Recovered`) AS 'Discharge - Recovered',
 SUM(final.`Discharge - Death`) AS 'Discharge - Death',
 SUM(final.`Discharge - Defaulter`) AS 'Discharge - Defaulter',
-SUM(final.`Discharge - Not Improved`) AS 'Discharge - Not Improved',
+SUM(final.`Discharge - Not improved`) AS 'Discharge - Not improved',
 SUM(final.`Discharge - Refer to Hospital`) AS 'Discharge - Refer to Hospital',
 SUM(final.`Transfer Out`) AS 'Transfer Out',
 (CASE
@@ -23,7 +23,7 @@ WHEN final.`Age Group` = '< 6 month' AND final.`Sex` = 'M' THEN im1.male_less_th
 WHEN final.`Age Group` = '6-59 month' AND final.`Sex` = 'F' THEN im1.female_more_than_six
 WHEN final.`Age Group` = '6-59 month' AND final.`Sex` = 'M' THEN im1.male_more_than_six
 ELSE 0
-END) + SUM(final.`New Admission`) + SUM(final.`Re-admission`) + SUM(final.`Transfer In`) - SUM(final.`Discharge - Recovered`) - SUM(final.`Discharge - Death`) - SUM(final.`Discharge - Defaulter`) - SUM(final.`Discharge - Not Improved`) - SUM(final.`Discharge - Refer to Hospital`) - SUM(final.`Transfer Out`) AS 'Children at End of This Month'
+END) + SUM(final.`New Admission`) + SUM(final.`Re-admission`) + SUM(final.`Transfer in`) - SUM(final.`Discharge - Recovered`) - SUM(final.`Discharge - Death`) - SUM(final.`Discharge - Defaulter`) - SUM(final.`Discharge - Not improved`) - SUM(final.`Discharge - Refer to Hospital`) - SUM(final.`Transfer Out`) AS 'Children at End of This Month'
 FROM
 (SELECT
 withoutDefaulters.*,
@@ -35,10 +35,10 @@ gender AS 'Sex',
 0 AS 'Children at End of Last Month',
 SUM(IF(adtType = 'NEW', 1, 0)) AS 'New Admission',
 SUM(IF(adtType = 'IMAM-Defaulter', 1, 0)) AS 'Re-admission',
-SUM(IF(adtType = 'Transfer in', 1, 0)) AS 'Transfer In',
+SUM(IF(adtType = 'Transfer in', 1, 0)) AS 'Transfer in',
 SUM(IF(adtType = 'Recovered', 1, 0)) AS 'Discharge - Recovered',
 SUM(IF(adtType = 'Death', 1, 0)) AS 'Discharge - Death',
-SUM(IF(adtType = 'Not improved', 1, 0)) AS 'Discharge - Not Improved',
+SUM(IF(adtType = 'Not improved', 1, 0)) AS 'Discharge - Not improved',
 SUM(IF(adtType = 'IMAM-Refer to hospital', 1, 0)) AS 'Discharge - Refer to Hospital',
 SUM(IF(adtType = 'Transfer out to', 1, 0)) AS 'Transfer Out',
 0 AS 'Children at End of This Month'

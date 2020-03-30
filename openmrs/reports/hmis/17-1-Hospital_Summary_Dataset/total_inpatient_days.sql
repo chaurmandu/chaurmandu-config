@@ -25,11 +25,11 @@ INNER JOIN visit on visit.patient_id = person.person_id
 INNER JOIN
 		 concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name NOT IN ('DRTuberculosis, Diagnosis Category')
+        AND cn1.name NOT IN ('DRTB intake-Diagnosis category')
         AND o1.voided = 0
         AND cn1.voided = 0
          INNER JOIN 
          concept_name cn2 ON o1.concept_id = cn2.concept_id
         AND cn2.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn2.name ='Discharge Note, Admission Date'
+        AND cn2.name ='Discharge note, Admission Date'
  ORDER BY TIMESTAMPDIFF(DAY, visit.date_started, visit.date_stopped) DESC;

@@ -29,7 +29,7 @@ FROM
         AND answer_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name = 'Death Note, Death occured post operative'
+        question_concept_name.name = 'Death note-Death occured post operative'
             AND cd.name = 'Boolean' UNION SELECT 
         answer_concept_fully_specified_name.concept_id AS answer,
             answer_concept_fully_specified_name.name AS answer_name
@@ -45,7 +45,7 @@ FROM
         AND answer_concept_fully_specified_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name = 'Death Note, Death occured post operative'
+        question_concept_name.name = 'Death note-Death occured post operative'
             AND cd.name = 'Boolean'
     ORDER BY answer_name DESC) first_answers
         INNER JOIN
@@ -61,7 +61,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'Death Note, Death occured post operative'
+        AND cn1.name = 'Death note-Death occured post operative'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id

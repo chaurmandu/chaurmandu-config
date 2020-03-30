@@ -3,7 +3,7 @@ SELECT
   SUM(T1.Count) AS Count
 From
 (SELECT
-  If(onlyBreastFeeding.question_full_name = 'Nutrition, Only Breast Feeding for 6 Months', 'Excl. breast feeding',
+  If(onlyBreastFeeding.question_full_name = 'Nutrition-Only breast feeding for 6 months', 'Excl. breast feeding',
      'Complementary feeding')                 AS question,
   COUNT(DISTINCT onlyBreastFeeding.person_id) AS Count
 
@@ -13,7 +13,7 @@ FROM person p
 WHERE !p.voided AND
       DATE(onlyBreastFeeding.obs_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
       AND (onlyBreastFeeding.question_full_name IN
-           ('Nutrition, Only Breast Feeding for 6 Months', 'Nutrition, Breast Feeding and Light Food'))
+           ('Nutrition-Only breast feeding for 6 months', 'Nutrition-Breast feeding and light food'))
       AND address.address1 ='10'
 GROUP BY question
 UNION ALL SELECT 'Excl. breast feeding', 0

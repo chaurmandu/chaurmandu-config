@@ -13,7 +13,7 @@ SELECT
                 FROM
                     concept_name
                 WHERE
-                    name IN ('Operative Notes, Diagnosis' , 'Procedure Notes, Diagnosis')
+                    name IN ('Operative note-Diagnosis' , 'Procedure note-Diagnosis')
                         AND concept_name_type = 'FULLY_SPECIFIED'
                         AND locale = 'en'
                         AND voided = 0)
@@ -27,7 +27,7 @@ SELECT
                 FROM
                     concept_name
                 WHERE
-                    name IN ('Operative Notes, Anesthetist' , 'Procedure Notes, Anesthetist')
+                    name IN ('Operative note-Anesthetist' , 'Procedure note-Anesthetist')
                         AND concept_name_type = 'FULLY_SPECIFIED'
                         AND locale = 'en'
                         AND voided = 0)
@@ -41,7 +41,7 @@ SELECT
                 FROM
                     concept_name
                 WHERE
-                    name IN ('Operative Notes, Anesthesia' , 'Procedure Notes, Anesthesia')
+                    name IN ('Operative note-Anesthesia' , 'Procedure note-Anesthesia')
                         AND concept_name_type = 'FULLY_SPECIFIED'
                         AND locale = 'en'
                         AND voided = 0)
@@ -55,7 +55,7 @@ SELECT
                 FROM
                     concept_name
                 WHERE
-                    name IN ('Operative Notes, Surgeons' , 'Procedure Notes, Surgeons')
+                    name IN ('Operative note-Surgeons' , 'Procedure note-Surgeons')
                         AND concept_name_type = 'FULLY_SPECIFIED'
                         AND locale = 'en'
                         AND voided = 0)
@@ -74,7 +74,7 @@ SELECT
                         FROM
                             concept_name
                         WHERE
-                            name IN ('Operative Notes, Procedure' , 'Procedure Notes, Procedure')
+                            name IN ('Operative note-Procedure' , 'Procedure note-Procedure')
                                 AND concept_name_type = 'FULLY_SPECIFIED'
                                 AND locale = 'en'
                                 AND voided = 0)
@@ -102,15 +102,15 @@ FROM
         FROM
             concept_name
         WHERE
-            name IN ('Operative Notes, Diagnosis' , 'Operative Notes, Surgeons',
-                'Operative Notes, Anesthetist',
-                'Operative Notes, Anesthesia',
-                'Operative Notes, Procedure',
-                'Procedure Notes, Diagnosis',
-                'Procedure Notes, Surgeons',
-                'Procedure Notes, Anesthetist',
-                'Procedure Notes, Anesthesia',
-                'Procedure Notes, Procedure')
+            name IN ('Operative note-Diagnosis' , 'Operative note-Surgeons',
+                'Operative note-Anesthetist',
+                'Operative note-Anesthesia',
+                'Operative note-Procedure',
+                'Procedure note-Diagnosis',
+                'Procedure note-Surgeons',
+                'Procedure note-Anesthetist',
+                'Procedure note-Anesthesia',
+                'Procedure note-Procedure')
                 AND concept_name_type = 'FULLY_SPECIFIED'
                 AND locale = 'en'
                 AND voided = 0)

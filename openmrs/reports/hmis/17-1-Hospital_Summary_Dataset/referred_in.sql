@@ -1,7 +1,7 @@
 
 SELECT 
 	gender.gender              AS Gender,
-    count(distinct(a.person_id)) as 'Referred In Patient count'  
+    count(distinct(a.person_id)) as 'Referred in Patient count'  
     from
     
  (SELECT 'M' AS gender
@@ -15,7 +15,7 @@ SELECT
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name IN ('Referred In')
+        AND cn1.name IN ('Referred in')
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id

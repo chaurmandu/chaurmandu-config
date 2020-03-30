@@ -17,7 +17,7 @@ FROM
         AND question_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name IN ('Childhood Illness - Treatment - Gentamycin - 1st dose' ,'Childhood Illness - Treatment - Gentamycin - Complete Dose')
+        question_concept_name.name IN ('1 st dose' ,'Complete dose')
         ORDER BY answer_name DESC) first_question
         LEFT OUTER JOIN
     (SELECT DISTINCT
@@ -35,7 +35,7 @@ FROM
     INNER JOIN person p ON o.person_id = p.person_id
     and p.voided=0
     WHERE
-    cn1.name IN ('Childhood Illness - Treatment - Gentamycin - 1st dose' ,'Childhood Illness - Treatment - Gentamycin - Complete Dose')
+    cn1.name IN ('1 st dose' ,'Complete dose')
 	AND TIMESTAMPDIFF(DAY, p.birthdate, v.date_started) < 60
          and 
        -- DATE(o.obs_datetime) BETWEEN DATE('2015-03-01') AND DATE('2017-03-30')

@@ -73,11 +73,11 @@ FROM
                 person.person_id AS person_id,
                 rag.name AS age_grp,
                 person.gender AS gender,
-                CASE WHEN obs.value_coded IN (SELECT concept_id FROM concept_view WHERE concept_full_name IN ('Death ? 48 Hours', 'Death < 48 Hours'))  THEN true ELSE false END AS is_dead
+                CASE WHEN obs.value_coded IN (SELECT concept_id FROM concept_view WHERE concept_full_name IN ('Death ? 48 Hours', 'Death<48 Hours'))  THEN true ELSE false END AS is_dead
             FROM
                 obs 
             INNER JOIN concept_view question ON obs.concept_id = question.concept_id
-                AND question.concept_full_name = 'Discharge note, Inpatient outcome'
+                AND question.concept_full_name = 'Discharge note-Inpatient outcome'
             INNER JOIN person ON obs.person_id = person.person_id
             INNER JOIN encounter ON obs.encounter_id = encounter.encounter_id
             INNER JOIN visit ON encounter.visit_id = visit.visit_id

@@ -18,6 +18,6 @@ FROM (
         AND DATE(oDeworming.obs_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
         AND DATE(oVitaminA.obs_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
         AND TIMESTAMPDIFF(MONTH, p.birthdate, v.date_started) < 60
-        AND (oDeworming.question_full_name = 'Childhood Illness, Albendazole Given')
-        AND (vitaminAConcept.name = 'Childhood Illness, Vitamin A Capsules Provided' AND
+        AND (oDeworming.question_full_name = 'CBIMNCI <2-Albendazole given')
+        AND (vitaminAConcept.name = 'Childhood Illness-Vitamin A  provided' AND
              vitaminAConcept.concept_name_type = 'FULLY_SPECIFIED' AND !vitaminAConcept.voided))nutration;

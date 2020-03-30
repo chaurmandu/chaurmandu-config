@@ -9,7 +9,7 @@ SELECT
 FROM (SELECT
         TIMESTAMPDIFF(MONTH, p.birthdate, v.date_started) AS age,
         oStatus.answer_full_name                          AS status,
-        IF(oVisitType.answer_full_name = 'Nutrition-More Than 1 Visit In a Month',
+        IF(oVisitType.answer_full_name = 'Nutrition-More than 1 visit in a month',
            'Re-visit',
            oVisitType.answer_full_name)                   AS visitType
 
@@ -22,6 +22,6 @@ FROM (SELECT
             AND DATE(oStatus.obs_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
             AND DATE(oVisitType.obs_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
             AND TIMESTAMPDIFF(MONTH, p.birthdate, v.date_started) < 24
-            AND oStatus.question_full_name = 'Nutrition, Nutritional Status'
-            AND oVisitType.question_full_name = 'Nutrition, Visit Type') report
+            AND oStatus.question_full_name = 'Nutrition-Nutritional status'
+            AND oVisitType.question_full_name = 'Nutrition-Visit type') report
 GROUP BY visitType;

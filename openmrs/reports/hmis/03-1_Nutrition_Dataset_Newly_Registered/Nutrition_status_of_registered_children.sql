@@ -35,8 +35,8 @@ DISTINCT(p.person_id),
             AND DATE(oStatus.obs_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
             AND DATE(oVisitType.obs_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
             AND TIMESTAMPDIFF(MONTH, p.birthdate, v.date_started) <= 24
-            AND oStatus.question_full_name = 'Nutrition, Nutritional Status'
-            AND oVisitType.question_full_name = 'Nutrition, Visit Type'
+            AND oStatus.question_full_name = 'Nutrition-Nutritional status'
+            AND oVisitType.question_full_name = 'Nutrition-Visit type'
 			AND oVisitType.answer_full_name in ('New','Re-visit' )) report
 GROUP BY visitType
 UNION ALL SELECT 'New',0,0,0,0,0,0
