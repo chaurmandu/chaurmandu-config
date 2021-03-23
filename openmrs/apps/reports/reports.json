@@ -6,7 +6,7 @@
 		"type": "concatenated",
 		"config": {
 			"reports": [{
-					"name": "Reporting Status(New and Existing Clients)",
+					"name": "Front page-Total clients served (New and Existing Clients)",
 					"type": "MRSGeneric",
 					"config": {
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/01-Reporting_Status/new_and_existing_clients.sql"
@@ -1083,10 +1083,10 @@
 		"type": "concatenated",
 		"config": {
 			"reports": [{
-					"name": "Hospital Services - Total Client Served",
+					"name": "Hospital Services - OPD clients served",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/17-1-Hospital_Summary_Dataset/number_of_clients.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/17-1-Hospital_Summary_Dataset/outpatientServices.sql"
 					}
 				},
 				{
