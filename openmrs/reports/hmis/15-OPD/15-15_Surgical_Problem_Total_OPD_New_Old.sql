@@ -1,5 +1,3 @@
-
-
 SELECT 
     COUNT(DISTINCT IF((gender = 'F' AND Type = 'New'),
             obs_id,
