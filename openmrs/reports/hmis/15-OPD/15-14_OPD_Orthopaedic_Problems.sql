@@ -26,12 +26,12 @@ FROM
 									'Cracked tooth','Injury of eye and orbit, unspecified','Open wound, unspecified',
                                     'Diffuse traumatic brain injury','Fracture of tooth','Fracture, unspecified',
                                     'Fracture of mandible') THEN 'Falls/ injuries/ fractures' ELSE concept_full_name END AS answer_name,
-    CASE WHEN icd10_code IN ('S02.5','T14.2','S06.2','S09','W19','K03.81','S05.9','T14.1','S02.6') THEN 'T14' ELSE icd10_code END AS icd10code,
+    CASE WHEN icd10_code IN ('W19','V89.2','M06','I77.6','M19','R07.4') THEN 'T14' ELSE icd10_code END AS icd10code,
          icd10_code
     FROM
         diagnosis_concept_view
     WHERE
-        icd10_code IN ('V89','M06','M13','M19','M54.9','S02.5','T14.2','S02.6','K03.81','S06.2','S05.9','S09','T14.1', 'W19')) first_answers
+        icd10_code IN ('W19','V89.2','M06','I77.6','M19','R07.4')) first_answers
         
         LEFT OUTER JOIN
     (SELECT DISTINCT
@@ -54,7 +54,7 @@ FROM
         AND o.voided = 0
         AND cn.voided = 0
      JOIN diagnosis_concept_view dcv ON dcv.concept_id = o.value_coded
-        AND dcv.icd10_code IN ('V89','M06','M13','M19','M54.9','S02.5','T14.2','S02.6','K03.81','S06.2','S05.9','S09','T14.1', 'W19')
+        AND dcv.icd10_code IN ('W19','V89.2','M06','I77.6','M19','R07.4')
     WHERE
         p.voided = 0) first_concept ON first_concept.icd10_code = first_answers.icd10_code
         LEFT OUTER JOIN
@@ -79,5 +79,4 @@ FROM
         CAST(obs.obs_datetime AS DATE) BETWEEN DATE('#startDate#') AND DATE('#endDate#')) second_concept ON first_concept.person_id = second_concept.person_id
         AND first_concept.visit_id = second_concept.visit_id
 GROUP BY first_answers.icd10_code
-ORDER BY FIELD(first_answers.icd10_code,'V89','M06','M13','M19','M54.9','S02.5','T14.2','S02.6','K03.81','S06.2','S05.9','S09','T14.1', 'W19')
-
+ORDER BY FIELD(first_answers.icd10_code,'W19','V89.2','M06','I77.6','M19','R07.4')
